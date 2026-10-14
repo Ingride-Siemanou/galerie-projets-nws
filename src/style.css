@@ -1,0 +1,528 @@
+
+/* Couleurs officielles NWS */
+:root {
+    --orange-nws: #e94a34;
+    --bleu-nws: #00a5a5;
+    --jaune-nws: #fec800;
+}
+
+/* Style général */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    padding: 30px;
+    margin: 0;
+}
+
+h1 {
+    color: var(--orange-nws);
+    text-align: center;
+    font-size: 32px;
+}
+
+h2 {
+    color: var(--bleu-nws);
+    font-size: 22px;
+    border-bottom: 3px solid var(--jaune-nws);
+    padding-bottom: 10px;
+}
+
+/* Barre de recherche */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 30px auto;
+}
+
+form input[type="search"] {
+    flex: 1 1 250px;
+    min-width: 0;
+    padding: 14px 18px;
+    border: 2px solid var(--bleu-nws);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+form input[type="search"]:focus {
+    border-color: var(--orange-nws);
+}
+
+/* Menus déroulants */
+form select {
+    flex: 1 1 170px;
+    min-width: 0;
+    padding: 14px 18px;
+    border: 2px solid var(--bleu-nws);
+    border-radius: 10px;
+    background-color: white;
+    color: #333333;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+form select:focus {
+    border-color: var(--orange-nws);
+}
+
+form select:hover {
+    border-color: var(--jaune-nws);
+}
+
+/* Bouton rechercher */
+form button {
+    flex: 0 1 160px;
+    background-color: var(--orange-nws);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--bleu-nws);
+}
+
+/* Bouton effacer les filtres */
+.bouton-reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 180px;
+    padding: 14px 20px;
+    background-color: white;
+    color: var(--bleu-nws);
+    border: 2px solid var(--bleu-nws);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bouton-reset:hover {
+    background-color: var(--bleu-nws);
+    color: white;
+}
+
+/* Galerie : deux cartes côte à côte */
+.galerie-projets {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* Cartes des projets */
+.carte-projet,
+.galerie-projets .carte-projet {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Message aucun résultat */
+.message-vide {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff8e1;
+    border-left: 5px solid var(--jaune-nws);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Tablettes et petits écrans */
+@media (max-width: 700px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .galerie-projets {
+        grid-template-columns: 1fr;
+    }
+
+    .carte-projet {
+        padding: 18px;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    form input[type="search"],
+    form select,
+    form button,
+    form .bouton-reset {
+        flex: none;
+        width: 100%;
+    }
+
+    .carte-projet {
+        padding: 15px;
+    }
+}
+
+/* Amélioration visuelle des cartes NWS */
+
+.carte-projet {
+    position: relative;
+    border-top: 5px solid #e94a34;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-projet:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 165, 165, 0.18);
+}
+
+.carte-projet h2 {
+    margin-top: 0;
+    line-height: 1.4;
+}
+
+.carte-projet p {
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+/* Responsive sur téléphone */
+
+@media (max-width: 700px) {
+    .carte-projet {
+        padding: 18px;
+    }
+
+    .carte-projet:hover {
+        transform: none;
+    }
+}
+
+/* Logo Normandie Web School */
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -100px;
+    margin-bottom: 50px;
+}
+
+.logo-nws {
+    width: 180px;
+    max-width: 60%;
+    height: auto;
+}
+@media (max-width: 600px) {
+    .logo-nws {
+        width: 130px;
+    }
+}
+
+/* Options des listes déroulantes */
+
+form select option {
+    background-color: #ffffff;
+    color: #00a5a5;
+    font-size: 16px;
+    padding: 12px;
+}
+
+form select option:checked {
+    background-color: #e94a34;
+    color: #ffffff;
+}
+
+/* Conteneur des filtres NWS */
+
+.filtres-nws {
+    display: contents;
+}
+
+/* Style des listes déroulantes */
+
+.menu-specialite,
+.menu-annee {
+    position: relative;
+    flex: 1 1 170px;
+    min-width: 0;
+}
+
+.menu-specialite select,
+.menu-annee select {
+    width: 100%;
+    min-height: 50px;
+    border: 2px solid #00a5a5;
+    border-radius: 12px;
+    background-color: white;
+    color: #333333;
+    font-size: 16px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.menu-specialite select:focus,
+.menu-annee select:focus {
+    border-color: #e94a34;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(233, 74, 52, 0.12);
+}
+
+/* Responsive téléphone */
+
+@media (max-width: 600px) {
+    .menu-specialite,
+    .menu-annee {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo-container {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .logo-nws {
+        width: 95px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+}
+
+/* Logo et titre sur la même ligne */
+.entete-nws {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+}
+
+.entete-nws .logo-nws {
+    width: 150px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.entete-nws h1 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Adaptation téléphone */
+@media (max-width: 600px) {
+    .entete-nws {
+        gap: 10px;
+    }
+
+    .entete-nws .logo-nws {
+        width: 75px;
+    }
+
+    .entete-nws h1 {
+        font-size: 19px;
+    }
+}
+
+/* ===== MENUS DÉROULANTS PERSONNALISÉS ===== */
+
+/* Le conteneur de chaque menu */
+.menu-specialite,
+.menu-annee {
+    position: relative;
+}
+
+/* On cache les anciens menus uniquement
+   lorsque JavaScript a créé les nouveaux */
+.menu-personnalise-actif select {
+    display: none;
+}
+
+/* Le bouton qui ouvre la liste */
+.menu-personnalise-bouton {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 18px;
+    background-color: white;
+    border: 2px solid #00a5a5;
+    border-radius: 12px;
+    color: #333;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Quand on passe la souris dessus */
+.menu-personnalise-bouton:hover {
+    border-color: #fec800;
+}
+
+/* Quand le menu est sélectionné */
+.menu-personnalise-bouton:focus-visible {
+    outline: 3px solid #e94a34;
+    outline-offset: 2px;
+}
+
+/* La liste qui s'ouvre */
+.menu-personnalise-liste {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #00a5a5;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    z-index: 100;
+}
+
+/* Très important : cacher la liste fermée */
+.menu-personnalise-liste[hidden] {
+    display: none;
+}
+
+/* Chaque option */
+.menu-personnalise-option {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Effet au survol */
+.menu-personnalise-option:hover,
+.menu-personnalise-option:focus-visible {
+    background-color: #00a5a5;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .menu-personnalise-bouton {
+        width: 100%;
+    }
+
+    .menu-personnalise-liste {
+        max-height: 220px;
+        overflow-y: auto;
+    }
+}
+
+/* Flèche des menus déroulants personnalisés */
+.menu-personnalise-bouton {
+    position: relative;
+    padding-right: 45px;
+}
+
+/* Dessiner la flèche */
+.menu-personnalise-bouton::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    border-right: 2px solid #00a5a5;
+    border-bottom: 2px solid #00a5a5;
+
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+/* La flèche se retourne quand le menu est ouvert */
+.menu-personnalise-bouton[aria-expanded="true"]::after {
+    transform: translateY(-20%) rotate(225deg);
+}
+
+/* Flèche orange au survol */
+.menu-personnalise-bouton:hover::after {
+    border-color: #e94a34;
+}
+
+/* Flèches des deux menus personnalisés */
+
+.menu-personnalise-bouton {
+    position: relative;
+    padding-right: 45px;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.menu-personnalise-bouton::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 18px;
+
+    width: 9px;
+    height: 9px;
+
+    border-right: 2px solid #00a5a5;
+    border-bottom: 2px solid #00a5a5;
+
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+/* Flèche vers le haut lorsque la liste est ouverte */
+.menu-personnalise-bouton[aria-expanded="true"]::after {
+    transform: translateY(-25%) rotate(225deg);
+}
+
+/* Bordure orange quand le menu est ouvert */
+.menu-personnalise-bouton[aria-expanded="true"] {
+    border-color: #e94a34;
+}

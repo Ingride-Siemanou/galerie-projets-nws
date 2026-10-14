@@ -1,0 +1,15 @@
+# Informations sensibles
+.env
+.env.*
+!.env.example
+
+# Fichiers temporaires
+*.log
+.DS_Store
+Thumbs.db
+
+# Paramètres locaux de VS Code
+.vscode/
+
+# Fichiers envoyés par les utilisateurs
+src/uploads/
