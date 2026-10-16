@@ -1,0 +1,924 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7f8;
+    color: #252525;
+}
+
+/* En-tête du tableau de bord */
+
+.admin-header {
+    background-color: white;
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 5px solid #e94a34;
+}
+
+.admin-logo {
+    width: 110px;
+    max-width: 100%;
+    height: auto;
+}
+
+.admin-header h1 {
+    color: #e94a34;
+    font-size: 30px;
+    margin: 15px 0 8px;
+}
+
+.admin-header p {
+    color: #666;
+    margin: 0;
+}
+
+/* Contenu principal */
+
+.admin-main {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.admin-main h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 35px;
+}
+
+/* Cartes de gestion */
+
+.admin-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.admin-card {
+    background-color: white;
+    padding: 35px 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    border-top: 5px solid #00a5a5;
+    transition: transform 0.2s ease;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+}
+
+.admin-card h3 {
+    color: #e94a34;
+    font-size: 21px;
+    margin-top: 0;
+}
+
+.admin-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Adaptation aux petits écrans */
+
+@media (max-width: 650px) {
+    .admin-header h1 {
+        font-size: 25px;
+    }
+
+    .admin-main {
+        margin: 30px auto;
+    }
+
+    .admin-main h2 {
+        font-size: 21px;
+    }
+
+    .admin-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-card {
+        padding: 28px 20px;
+    }
+}
+
+
+.logout-button {
+    margin-top: 20px;
+    padding: 11px 22px;
+    border: 2px solid #e94a34;
+    border-radius: 8px;
+    background-color: white;
+    color: #e94a34;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #e94a34;
+    color: white;
+}
+
+
+/* Formulaire d'ajout de projet */
+
+.projet-form {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    border-top: 5px solid #00a5a5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.projet-form label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.projet-form input,
+.projet-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.projet-form input:focus,
+.projet-form textarea:focus {
+    outline: none;
+    border-color: #00a5a5;
+}
+
+.projet-form button {
+    margin-top: 25px;
+    padding: 14px 24px;
+    background-color: #e94a34;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.projet-form button:hover {
+    background-color: #c83b28;
+}
+
+@media (max-width: 600px) {
+    .projet-form {
+        padding: 20px;
+    }
+
+    .projet-form button {
+        width: 100%;
+    }
+}
+
+
+.admin-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.admin-card-link:hover {
+    transform: translateY(-4px);
+    border-top-color: #e94a34;
+}
+
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.form-actions button {
+    margin-top: 0;
+}
+
+.cancel-button {
+    display: inline-block;
+    padding: 14px 24px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cancel-button:hover {
+    background-color: #ddd;
+}
+
+@media (max-width: 600px) {
+    .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ==================================
+   Tableau de gestion des projets NWS
+   ================================== */
+
+.table-container {
+    width: 100%;
+    margin-top: 25px;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.projets-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+.projets-table thead {
+    background-color: #00a5a5;
+    color: white;
+}
+
+.projets-table th {
+    padding: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.projets-table td {
+    padding: 15px 16px;
+    border-bottom: 1px solid #eeeeee;
+    color: #333;
+}
+
+.projets-table tbody tr:nth-child(even) {
+    background-color: #f8fafa;
+}
+
+.projets-table tbody tr:hover {
+    background-color: #fff4ef;
+}
+
+.projets-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Adaptation aux petits écrans */
+
+@media (max-width: 768px) {
+    .projets-table {
+        min-width: 750px;
+        font-size: 13px;
+    }
+
+    .projets-table th,
+    .projets-table td {
+        padding: 12px;
+    }
+}
+
+
+/* Boutons de gestion des projets */
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 9px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.edit-button {
+    background-color: #00a5a5;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #008686;
+}
+
+.delete-button {
+    background-color: #e94a34;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c83b28;
+}
+
+/* Agrandir la zone de gestion des projets */
+
+.admin-main:has(.projets-table) {
+    max-width: 1400px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Empêcher les textes de se couper */
+
+.projets-table {
+    min-width: 1050px;
+}
+
+.projets-table th,
+.projets-table td {
+    white-space: nowrap;
+}
+
+/* Garder les boutons sur la même ligne */
+
+.project-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+/* Défilement horizontal sur les petits écrans */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.success-message {
+    padding: 15px 20px;
+    margin: 20px 0;
+    background-color: #e8f7f5;
+    color: #006b6b;
+    border-left: 5px solid #00a5a5;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+/* Bouton pour ajouter un projet depuis la liste */
+
+.add-project-button {
+    display: inline-block;
+    margin: 15px 0 20px;
+    padding: 12px 20px;
+    background-color: #e94a34;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.add-project-button:hover {
+    background-color: #c83b28;
+}
+
+
+/* Lien vers la galerie publique */
+
+.gallery-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 22px;
+    background-color: #00a5a5;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.gallery-button:hover {
+    background-color: #008686;
+}
+
+/*
+
+/* Évite les débordements horizontaux */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    margin: 0;
+}
+
+body {
+    overflow-wrap: break-word;
+}
+
+img,
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+}
+
+/* Contenu principal */
+.admin-container,
+.admin-content,
+.admin-main,
+main {
+    min-width: 0;
+}
+
+/* Tableaux : défilement horizontal uniquement si nécessaire */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.projets-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Formulaires */
+.projet-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.projet-form input,
+.projet-form select,
+.projet-form textarea {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Actions dans les tableaux */
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+    .admin-container,
+    .admin-content,
+    .admin-main,
+    main {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .projet-form {
+        padding: 16px;
+    }
+
+    .projets-table {
+        min-width: 650px;
+    }
+
+    .project-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-actions a,
+    .project-actions button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 480px) {
+    .projet-form {
+        padding: 12px;
+    }
+
+    .projet-form input,
+    .projet-form select,
+    .projet-form textarea,
+    .projet-form button {
+        font-size: 16px;
+    }
+
+    .admin-card-link {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* CORRECTION RESPONSIVE — GESTION DES FICHIERS */
+
+body {
+    overflow-x: hidden;
+}
+
+.admin-container,
+.admin-content,
+.admin-main,
+main,
+.projets-table,
+.table-container {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .admin-container,
+    .admin-content,
+    .admin-main,
+    main {
+        width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .projets-table {
+        min-width: 600px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        min-width: 0;
+    }
+}
+/* Correction mobile : gestion des fichiers */
+@media (max-width: 600px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .admin-container,
+    .admin-content,
+    .admin-main,
+    main,
+    .admin-card,
+    .projet-form {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .admin-container,
+    .admin-content,
+    .admin-main,
+    main {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+        overflow-wrap: anywhere;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    form {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .table-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+
+.dashboard-intro {
+    margin-bottom: 28px;
+}
+
+.dashboard-intro p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Statistiques */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 24px 0 36px;
+}
+
+.dashboard-stat {
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.dashboard-stat-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.dashboard-stat-number {
+    display: block;
+    color: #0f172a;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.dashboard-stat-detail {
+    display: block;
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+.dashboard-stat.published {
+    border-top: 4px solid #16a34a;
+}
+
+.dashboard-stat.pending {
+    border-top: 4px solid #eab308;
+}
+
+.dashboard-stat.featured {
+    border-top: 4px solid #0d9488;
+}
+
+.dashboard-stat.files {
+    border-top: 4px solid #64748b;
+}
+
+/* Sections et actions rapides */
+
+.dashboard-section {
+    margin: 34px 0;
+}
+
+.dashboard-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.dashboard-section-heading h2 {
+    margin: 0;
+}
+
+.dashboard-section-heading a {
+    color: #0f766e;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.dashboard-section-heading a:hover {
+    text-decoration: underline;
+}
+
+.dashboard-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.dashboard-actions .admin-card {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-actions .admin-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
+}
+
+.dashboard-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: #e0f2f1;
+    font-size: 1.45rem;
+}
+
+.dashboard-actions .admin-card h3 {
+    margin: 4px 0 10px;
+}
+
+.dashboard-actions .admin-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.dashboard-actions .admin-card-action {
+    display: inline-block;
+    margin-top: 8px;
+    color: #0f766e;
+    font-weight: 700;
+}
+
+/* Tableau des derniers projets */
+
+.dashboard-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dashboard-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+.dashboard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.dashboard-table td {
+    color: #334155;
+}
+
+.dashboard-project-title {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Statuts des projets */
+
+.dashboard-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dashboard-status.publie {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.dashboard-status.en_attente {
+    color: #854d0e;
+    background: #fef3c7;
+}
+
+.dashboard-status.refuse {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.dashboard-empty {
+    padding: 24px;
+    color: #64748b;
+    text-align: center;
+}
+
+.dashboard-footer {
+    padding: 18px 0 8px;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Responsive : tablettes */
+
+@media (max-width: 800px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Responsive : téléphones */
+
+@media (max-width: 600px) {
+    .dashboard-stats,
+    .dashboard-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-stat {
+        padding: 18px;
+    }
+
+    .dashboard-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-table th,
+    .dashboard-table td {
+        padding: 11px 12px;
+    }
+}

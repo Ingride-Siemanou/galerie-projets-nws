@@ -526,3 +526,1024 @@ form select option:checked {
 .menu-personnalise-bouton[aria-expanded="true"] {
     border-color: #e94a34;
 }
+
+/* Images de couverture des projets */
+
+.image-projet {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+```css
+/* ===== Fiche détaillée d'un projet ===== */
+
+.fiche-projet {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.fiche-projet h1 {
+    color: #e94a34;
+    margin-bottom: 20px;
+}
+
+.fiche-projet h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #00a5a5;
+}
+
+.fiche-projet p {
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.fiche-projet a:not(.retour-galerie) {
+    color: #e94a34;
+    font-weight: bold;
+}
+
+.image-fiche {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.retour-galerie {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 18px;
+    background: #e94a34;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.retour-galerie:hover {
+    background: #c93827;
+}
+
+/* Adaptation aux téléphones */
+
+@media (max-width: 600px) {
+    .fiche-projet {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+
+    .image-fiche {
+        max-height: 300px;
+    }
+
+    .fiche-projet h1 {
+        font-size: 1.7rem;
+    }
+}
+
+/* =========================================
+   PAGE DÉTAIL D'UN PROJET
+   ========================================= */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.site-header img {
+    display: block;
+    width: 175px;
+    max-width: 100%;
+    height: auto;
+}
+
+.lien-retour-haut {
+    color: #333333;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.lien-retour-haut:hover {
+    color: #e94a34;
+}
+
+.detail-projet {
+    width: min(1180px, 88%);
+    margin: 0 auto;
+    padding: 30px 0 60px;
+    color: #292929;
+}
+
+.fil-ariane {
+    margin-bottom: 28px;
+    color: #777777;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.fil-ariane a {
+    color: #e94a34;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.detail-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+    align-items: center;
+    gap: 40px;
+    padding: 38px;
+    background: #fff8f5;
+    border-radius: 18px;
+    border-top: 5px solid #e94a34;
+}
+
+.detail-hero-texte {
+    min-width: 0;
+}
+
+.detail-surtitre {
+    margin: 0 0 14px;
+    color: #e94a34;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+}
+
+.detail-hero h1 {
+    margin: 0 0 18px;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.detail-auteur {
+    margin: 0 0 20px;
+    color: #555555;
+    line-height: 1.7;
+}
+
+.detail-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.detail-badges span {
+    display: inline-block;
+    padding: 7px 11px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+    font-size: 13px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.bouton-projet-externe {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: #e94a34;
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.bouton-projet-externe:hover {
+    background: #c93625;
+    transform: translateY(-2px);
+}
+
+.detail-image-conteneur {
+    min-width: 0;
+}
+
+.detail-image {
+    display: block;
+    width: 100%;
+    max-height: 390px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eeeeee;
+}
+
+.detail-grille {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: start;
+    gap: 35px;
+    margin-top: 42px;
+}
+
+.detail-contenu {
+    min-width: 0;
+}
+
+.detail-section {
+    padding: 0 0 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.detail-numero {
+    margin: 0 0 10px;
+    color: #00a5a5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.detail-section h2,
+.detail-info-card h2 {
+    margin: 0 0 16px;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.detail-texte {
+    margin: 0;
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.technologies-texte {
+    color: #333333;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.detail-cta {
+    padding: 24px;
+    margin-bottom: 30px;
+    background: #f0fbfb;
+    border-left: 4px solid #00a5a5;
+    border-radius: 10px;
+}
+
+.detail-cta h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+}
+
+.detail-cta p {
+    line-height: 1.7;
+}
+
+.detail-sidebar {
+    min-width: 0;
+}
+
+.detail-info-card {
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.detail-info-ligne {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.detail-info-ligne:last-child {
+    border-bottom: none;
+}
+
+.detail-info-ligne span {
+    color: #777777;
+    font-size: 13px;
+}
+
+.detail-info-ligne strong {
+    color: #292929;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.retour-galerie-detail {
+    display: inline-block;
+    margin-top: 20px;
+    color: #e94a34;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.retour-galerie-detail:hover {
+    text-decoration: underline;
+}
+
+.detail-footer {
+    padding: 25px 6%;
+    background: #292929;
+    color: #ffffff;
+    text-align: center;
+}
+
+.detail-footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Adaptation aux tablettes et téléphones */
+
+@media (max-width: 850px) {
+    .detail-hero {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 28px;
+    }
+
+    .detail-image {
+        max-height: 420px;
+    }
+
+    .detail-grille {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .detail-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 550px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 5%;
+    }
+
+    .site-header img {
+        width: 145px;
+    }
+
+    .detail-projet {
+        width: 90%;
+        padding-top: 22px;
+    }
+
+    .detail-hero {
+        padding: 22px 18px;
+        border-radius: 12px;
+    }
+
+    .detail-hero h1 {
+        font-size: 29px;
+    }
+
+    .detail-section h2,
+    .detail-info-card h2 {
+        font-size: 21px;
+    }
+
+    .detail-info-card {
+        padding: 20px;
+    }
+
+    .bouton-projet-externe {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Liens vers les pages détaillées depuis la galerie */
+
+.lien-carte-projet {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.lien-carte-projet h2 {
+    transition: color 0.2s ease;
+}
+
+.lien-carte-projet:hover h2 {
+    color: #e94a34;
+}
+
+.lien-detail-projet {
+    display: inline-block;
+    margin-top: 10px;
+    color: #e94a34;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lien-detail-projet:hover {
+    text-decoration: underline;
+}
+
+.nombre-projets {
+    margin: 20px 0;
+    color: #555555;
+    font-weight: 600;
+}
+
+.galerie-contenu {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+
+/* Petite amélioration de l'accueil NWS */
+
+.entete-nws {
+    background: linear-gradient(135deg, #ffffff 70%, #fff8e8 100%);
+    border-bottom: 3px solid #fec800;
+    box-shadow: 0 4px 16px rgba(38, 50, 56, 0.06);
+}
+
+.entete-nws h1 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.3;
+}
+
+/* Texte de bienvenue */
+body > p {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    padding: 18px 22px;
+    background: #ffffff;
+    border-left: 4px solid #00a5a5;
+    border-radius: 0 10px 10px 0;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Espacement plus harmonieux avant les filtres */
+#form-filtres-projets {
+    margin-top: 24px;
+}
+
+/* Adaptation sur téléphone */
+@media (max-width: 600px) {
+    .entete-nws h1 {
+        font-size: 1.5rem;
+    }
+
+    body > p {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* FOOTER NORMANDIE WEB SCHOOL */
+
+.footer-nws {
+    margin-top: 60px;
+    padding: 35px 6% 0;
+    background: #263238;
+    color: #ffffff;
+}
+
+.footer-nws-contenu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.footer-nws-identite {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-nws-identite img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.footer-nws-identite h2 {
+    margin: 0 0 5px;
+    color: #fec800;
+    font-size: 1.1rem;
+}
+
+.footer-nws-identite p {
+    margin: 0;
+    color: #d5dde0;
+    font-size: 0.9rem;
+}
+
+.footer-nws-liens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-nws-liens a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-nws-liens a:hover {
+    color: #fec800;
+}
+
+.footer-nws-bas {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 17px 0;
+    border-top: 1px solid #465258;
+    text-align: center;
+}
+
+.footer-nws-bas p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .footer-nws {
+        padding: 28px 20px 0;
+    }
+
+    .footer-nws-contenu {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-nws-liens {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+.bouton-proposer-haut {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.bouton-proposer-haut a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #00aaa8;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bouton-proposer-haut a:hover {
+    background: #008c89;
+}
+
+
+/* ===== Formulaire d'inscription NWS ===== */
+
+.formulaire-inscription {
+    width: min(100% - 32px, 480px);
+    margin: 50px auto;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.formulaire-inscription h1 {
+    margin: 0 0 12px;
+    color: #173b4d;
+    text-align: center;
+    font-size: 28px;
+}
+
+.formulaire-inscription > p {
+    color: #666666;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.formulaire-inscription form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.formulaire-inscription label {
+    margin-top: 8px;
+    color: #263746;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.formulaire-inscription input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d5dfe5;
+    border-radius: 9px;
+    box-sizing: border-box;
+    font: inherit;
+    background: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulaire-inscription input:focus {
+    outline: none;
+    border-color: #00aaa8;
+    box-shadow: 0 0 0 3px rgba(0, 170, 168, 0.15);
+}
+
+.formulaire-inscription button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #00aaa8;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.formulaire-inscription button:hover {
+    background: #008c89;
+    transform: translateY(-1px);
+}
+
+.formulaire-inscription a {
+    color: #008c89;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.formulaire-inscription a:hover {
+    text-decoration: underline;
+}
+
+.formulaire-inscription [role="alert"] {
+    padding: 12px;
+    border-radius: 8px;
+    background: #fff0f0;
+    color: #b42318;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .formulaire-inscription {
+        margin: 20px auto;
+        padding: 22px;
+    }
+
+    .formulaire-inscription h1 {
+        font-size: 24px;
+    }
+}
+
+.barre-utilisateur {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 12px 24px;
+    margin: 10px 0 20px;
+}
+
+.barre-utilisateur p {
+    margin: 0;
+    color: #173b4d;
+}
+
+.bouton-deconnexion {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #00aaa8;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.bouton-deconnexion:hover {
+    background: #008c89;
+}
+
+@media (max-width: 480px) {
+    .barre-utilisateur {
+        justify-content: center;
+    }
+}
+
+.lien-logo {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.logo-nws {
+    display: block;
+    width: 180px;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Alignement de l'en-tête de la galerie */
+.entete-nws {
+    max-width: 1400px;
+    margin: 30px auto 0;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.entete-nws .logo-nws {
+    width: 150px;
+    max-width: 25%;
+    height: auto;
+    object-fit: contain;
+}
+
+.entete-nws h1 {
+    flex: 1;
+    margin: 0;
+    text-align: right;
+}
+
+/* Barre utilisateur */
+.barre-utilisateur {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* Message de bienvenue */
+.message-bienvenue {
+    max-width: 1400px;
+    margin: 35px auto 25px;
+    padding: 20px 25px;
+    border-left: 5px solid #00aaa6;
+    box-sizing: border-box;
+}
+
+/* Bouton proposer un projet */
+.bouton-proposer-haut {
+    display: flex;
+    justify-content: center;
+    margin: 25px auto 40px;
+    padding: 0 20px;
+}
+
+/* Adaptation mobile */
+@media (max-width: 700px) {
+    .entete-nws {
+        margin-top: 15px;
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .entete-nws .logo-nws {
+        max-width: 60%;
+        width: 130px;
+    }
+
+    .entete-nws h1 {
+        text-align: center;
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .barre-utilisateur {
+        padding: 0 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .message-bienvenue {
+        margin: 25px 20px;
+        padding: 15px;
+    }
+}
+
+/* Alignement général de la page d'accueil */
+.entete-nws,
+.barre-utilisateur,
+.message-bienvenue,
+.bouton-proposer-haut,
+#form-filtres-projets,
+.galerie-contenu,
+.projets-a-la-une,
+.footer-nws {
+    width: min(100% - 48px, 1400px);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+/* Bandeau logo et titre */
+.entete-nws {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 40px;
+}
+
+.entete-nws .logo-nws {
+    width: 150px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.entete-nws h1 {
+    flex: 1;
+    margin: 0;
+    text-align: right;
+}
+
+/* Barre de connexion */
+.barre-utilisateur {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 0;
+}
+
+/* Message de bienvenue */
+.message-bienvenue {
+    margin-top: 35px;
+    margin-bottom: 25px;
+    padding: 22px 25px;
+}
+
+/* Bouton proposer un projet */
+.bouton-proposer-haut {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+/* Adaptation aux petits écrans */
+@media (max-width: 700px) {
+    .entete-nws {
+        flex-direction: column;
+        padding: 24px 16px;
+        gap: 15px;
+    }
+
+    .entete-nws h1 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .barre-utilisateur {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .message-bienvenue {
+        margin-top: 25px;
+        padding: 16px;
+    }
+}
+
+
+/* Bandeau principal de la galerie */
+.entete-nws {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 190px;
+    padding: 30px 220px;
+    margin: 30px auto;
+    width: min(100% - 48px, 1500px);
+    box-sizing: border-box;
+    background: linear-gradient(120deg, #ffffff 45%, #fff8e8 100%);
+    border-bottom: 4px solid #fec800;
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 8px 25px rgba(20, 40, 60, 0.06);
+}
+
+.entete-nws .logo-nws {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 145px;
+    height: auto;
+}
+
+.entete-nws h1 {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    color: #ef4938;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.2;
+}
+
+/* Message de bienvenue */
+.message-bienvenue {
+    width: min(100% - 48px, 1200px);
+    margin: 35px auto;
+    padding: 22px 28px;
+    background: #f0faf9;
+    border-left: 5px solid #00aaa6;
+    border-radius: 0 10px 10px 0;
+    box-sizing: border-box;
+}
+
+/* Bouton principal */
+.bouton-proposer-haut {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 45px;
+}
+
+.bouton-proposer-haut a {
+    padding: 15px 28px;
+    border-radius: 10px;
+    background: #00aaa6;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.bouton-proposer-haut a:hover {
+    background: #008d89;
+    transform: translateY(-2px);
+}
+
+/* Affichage sur mobile */
+@media (max-width: 700px) {
+    .entete-nws {
+        min-height: auto;
+        padding: 25px 15px;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .entete-nws .logo-nws {
+        position: static;
+        transform: none;
+        width: 120px;
+    }
+
+    .entete-nws h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+}
+

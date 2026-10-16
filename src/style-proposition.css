@@ -1,0 +1,433 @@
+
+
+.proposition-conteneur {
+    width: min(850px, calc(100% - 32px));
+    margin: 40px auto;
+    padding: 32px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.proposition-conteneur h1 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #e94a34;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    line-height: 1.25;
+}
+
+.proposition-intro {
+    margin-bottom: 20px;
+    color: #444444;
+    line-height: 1.8;
+}
+
+.proposition-note {
+    margin: 20px 0;
+    padding: 14px 16px;
+    border-left: 4px solid #00a5a5;
+    border-radius: 6px;
+    background: #eaf8f7;
+    color: #245454;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Formulaire */
+
+.proposition-formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.proposition-formulaire label {
+    margin-top: 8px;
+    color: #292929;
+    font-weight: 600;
+}
+
+.proposition-formulaire input,
+.proposition-formulaire textarea,
+.proposition-formulaire select {
+    width: 100%;
+    padding: 13px 14px;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #222222;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proposition-formulaire textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.proposition-formulaire input:focus,
+.proposition-formulaire textarea:focus,
+.proposition-formulaire select:focus {
+    outline: none;
+    border-color: #00a5a5;
+    box-shadow: 0 0 0 3px rgba(0, 165, 165, 0.15);
+}
+
+.proposition-formulaire input::placeholder,
+.proposition-formulaire textarea::placeholder {
+    color: #888888;
+}
+
+/* Bouton d'envoi */
+
+.proposition-formulaire button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #e94a34;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.proposition-formulaire button:hover {
+    background: #cf3825;
+    transform: translateY(-1px);
+}
+
+.proposition-formulaire button:focus-visible {
+    outline: 3px solid #00a5a5;
+    outline-offset: 3px;
+}
+
+/* Messages de confirmation et d'erreur */
+
+.proposition-message {
+    margin: 22px 0;
+    padding: 18px;
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+.proposition-message p {
+    margin-bottom: 0;
+}
+
+.proposition-succes {
+    border: 1px solid #a8dfba;
+    background: #e8f7ed;
+    color: #176b38;
+}
+
+.proposition-erreur {
+    border: 1px solid #f0b8b2;
+    background: #fff0ee;
+    color: #a52b20;
+}
+
+/* Lien de retour */
+
+.proposition-retour {
+    display: inline-block;
+    margin-top: 28px;
+    color: #e94a34;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.proposition-retour:hover {
+    text-decoration: underline;
+}
+
+/* Adaptation aux téléphones */
+
+@media (max-width: 600px) {
+    .proposition-conteneur {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .proposition-formulaire input,
+    .proposition-formulaire textarea,
+    .proposition-formulaire select {
+        font-size: 16px;
+    }
+
+    .proposition-formulaire button {
+        padding: 14px;
+    }
+}
+
+
+/* ========================================
+   PROPOSITIONS À VALIDER - NWS
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #292929;
+    line-height: 1.6;
+}
+
+/* Conteneur principal */
+
+.propositions-conteneur {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 35px 24px 60px;
+}
+
+/* Lien de retour */
+
+.proposition-retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: #e94a34;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.proposition-retour:hover {
+    color: #bd3020;
+    text-decoration: underline;
+}
+
+/* Titres */
+
+.propositions-conteneur > h1 {
+    margin: 0 0 10px;
+    color: #e94a34;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.2;
+}
+
+.propositions-conteneur > p {
+    margin: 10px 0;
+}
+
+.propositions-conteneur > p strong {
+    color: #00a5a5;
+    font-size: 20px;
+}
+
+/* Cartes des propositions */
+
+.proposition-carte {
+    margin: 25px 0;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e2e5e9;
+    border-left: 5px solid #fec800;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    overflow-wrap: anywhere;
+}
+
+.proposition-carte h2 {
+    margin: 0 0 15px;
+    color: #e94a34;
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+.proposition-carte h3 {
+    margin: 24px 0 8px;
+    color: #008c8c;
+    font-size: 18px;
+}
+
+.proposition-carte p {
+    margin: 8px 0;
+}
+
+.proposition-description {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Informations principales */
+
+.proposition-infos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+}
+
+.proposition-infos p {
+    min-width: 0;
+    margin: 0;
+    padding: 13px 15px;
+    background: #f7f9fa;
+    border: 1px solid #e8ecef;
+    border-radius: 8px;
+}
+
+.proposition-infos strong {
+    display: inline-block;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+/* Liens vers les projets */
+
+.proposition-carte a:not(.proposition-retour) {
+    color: #008c8c;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.proposition-carte a:not(.proposition-retour):hover {
+    color: #006d6d;
+}
+
+/* Boutons d'action */
+
+.proposition-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #ececec;
+}
+
+.proposition-actions form {
+    margin: 0;
+}
+
+.proposition-actions button {
+    min-height: 44px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.proposition-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.proposition-actions button:focus-visible {
+    outline: 3px solid #fec800;
+    outline-offset: 3px;
+}
+
+.bouton-publier {
+    background: #16834a;
+}
+
+.bouton-publier:hover {
+    background: #116638;
+}
+
+.bouton-refuser {
+    background: #c73535;
+}
+
+.bouton-refuser:hover {
+    background: #a92727;
+}
+
+/* Messages de confirmation et d'erreur */
+
+.proposition-message {
+    margin: 22px 0;
+    padding: 15px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.proposition-message.succes {
+    color: #176438;
+    background: #e4f6eb;
+    border: 1px solid #b8e6c9;
+}
+
+.proposition-message.erreur {
+    color: #9c2020;
+    background: #fde8e8;
+    border: 1px solid #f4c2c2;
+}
+
+/* Aucune proposition en attente */
+
+.propositions-vide {
+    margin-top: 25px;
+    padding: 35px 24px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px dashed #cbd2d8;
+    border-radius: 12px;
+}
+
+.propositions-vide h2 {
+    margin-top: 0;
+    color: #008c8c;
+}
+
+.propositions-vide p {
+    margin-bottom: 0;
+    color: #666;
+}
+
+/* Adaptation aux téléphones */
+
+@media (max-width: 600px) {
+    .propositions-conteneur {
+        padding: 22px 14px 40px;
+    }
+
+    .proposition-carte {
+        padding: 18px;
+        margin: 18px 0;
+    }
+
+    .proposition-carte h2 {
+        font-size: 21px;
+    }
+
+    .proposition-infos {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .proposition-actions {
+        flex-direction: column;
+    }
+
+    .proposition-actions form,
+    .proposition-actions button {
+        width: 100%;
+    }
+}

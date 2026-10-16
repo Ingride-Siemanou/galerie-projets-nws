@@ -1,6 +1,4 @@
-
 <?php
-
 // Récupérer les paramètres transmis par Docker
 $serveur = getenv("DB_HOST");
 $baseDeDonnees = getenv("DB_NAME");

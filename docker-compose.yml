@@ -6,6 +6,7 @@ services:
       - "8080:80"
     volumes:
       - ./src:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
     environment:
       DB_HOST: ${DB_HOST}
       DB_NAME: ${DB_NAME}
@@ -22,6 +23,9 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ./php.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
+      
+
 
   phpmyadmin:
     image: phpmyadmin:5-apache
